@@ -4,20 +4,24 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Fraunces", ui-serif, Georgia, serif;
 
-  --color-accent-50: #fdf3f4;
-  --color-accent-100: #fbe6e9;
-  --color-accent-200: #f6cfd6;
-  --color-accent-300: #eea9b6;
-  --color-accent-400: #e27a90;
-  --color-accent-500: #d14e6c;
-  --color-accent-600: #bd3457;
-  --color-accent-700: #9f2747;
-  --color-accent-800: #852341;
-  --color-accent-900: #72213c;
+  /* Soft blush rose — light, gentle, feminine */
+  --color-accent-50: #fef5f7;
+  --color-accent-100: #fde8ee;
+  --color-accent-200: #fbd4e0;
+  --color-accent-300: #f7b3c8;
+  --color-accent-400: #f08bab;
+  --color-accent-500: #e86c93;
+  --color-accent-600: #d6517c;
+  --color-accent-700: #b83e66;
+  --color-accent-800: #983454;
+  --color-accent-900: #7e2f49;
+
+  /* Warm cream page background */
+  --color-cream: #fffaf7;
 }
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 }
 
 html {
