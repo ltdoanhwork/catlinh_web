@@ -12,6 +12,7 @@ import {
   Sparkles,
   Rocket,
   ImageIcon,
+  Play,
 } from "lucide-react";
 import {
   profile,
@@ -22,6 +23,7 @@ import {
   achievements,
   skills,
   instagram,
+  tiktok,
 } from "./data.js";
 
 const nav = [
@@ -30,6 +32,7 @@ const nav = [
   { label: "Projects", href: "#projects" },
   { label: "Achievements", href: "#achievements" },
   { label: "Feed", href: "#feed" },
+  { label: "TikTok", href: "#tiktok" },
   { label: "Skills", href: "#skills" },
   { label: "Contact", href: "#contact" },
 ];
@@ -65,12 +68,12 @@ function initials(name) {
 }
 
 const FLOWERS = [
-  { top: "6%", left: "8%", size: 160, petal: "var(--color-accent-200)", core: "var(--color-accent-300)", dur: 28, dx: "26px", dy: "-34px", depth: 0.05 },
-  { top: "18%", left: "82%", size: 110, petal: "var(--color-accent-100)", core: "var(--color-accent-300)", dur: 32, dx: "-30px", dy: "24px", depth: 0.09 },
-  { top: "44%", left: "70%", size: 200, petal: "var(--color-accent-100)", core: "var(--color-accent-200)", dur: 38, dx: "20px", dy: "30px", depth: 0.04 },
-  { top: "62%", left: "12%", size: 140, petal: "var(--color-accent-200)", core: "var(--color-accent-300)", dur: 30, dx: "32px", dy: "-22px", depth: 0.07 },
-  { top: "80%", left: "60%", size: 120, petal: "var(--color-accent-100)", core: "var(--color-accent-300)", dur: 34, dx: "-24px", dy: "-30px", depth: 0.06 },
-  { top: "88%", left: "30%", size: 90, petal: "var(--color-accent-200)", core: "var(--color-accent-400)", dur: 26, dx: "18px", dy: "26px", depth: 0.1 },
+  { top: "6%", left: "8%", size: 180, petal: "var(--color-accent-200)", core: "var(--color-accent-400)", dur: 24, dx: "40px", dy: "-50px", depth: 0.12 },
+  { top: "18%", left: "82%", size: 130, petal: "var(--color-accent-200)", core: "var(--color-accent-400)", dur: 28, dx: "-44px", dy: "36px", depth: 0.18 },
+  { top: "44%", left: "70%", size: 220, petal: "var(--color-accent-100)", core: "var(--color-accent-300)", dur: 34, dx: "30px", dy: "44px", depth: 0.09 },
+  { top: "62%", left: "12%", size: 160, petal: "var(--color-accent-200)", core: "var(--color-accent-400)", dur: 26, dx: "46px", dy: "-32px", depth: 0.15 },
+  { top: "80%", left: "60%", size: 140, petal: "var(--color-accent-200)", core: "var(--color-accent-400)", dur: 30, dx: "-36px", dy: "-44px", depth: 0.13 },
+  { top: "88%", left: "30%", size: 110, petal: "var(--color-accent-300)", core: "var(--color-accent-500)", dur: 22, dx: "26px", dy: "38px", depth: 0.2 },
 ];
 
 function Flora() {
@@ -506,6 +509,86 @@ function Feed() {
   );
 }
 
+function TikTok() {
+  return (
+    <Section id="tiktok" eyebrow="TikTok" title="On @noidaycocat">
+      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p className="max-w-prose text-neutral-600">{tiktok.bio}</p>
+        <a
+          href={tiktok.href}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex shrink-0 items-center gap-2 rounded-full border border-accent-300/60 bg-white px-4 py-2 text-sm font-medium text-accent-700 shadow-sm transition-colors hover:bg-accent-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400"
+        >
+          <Music2 className="size-4" />
+          Watch on TikTok
+        </a>
+      </div>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 md:gap-4">
+        {tiktok.videos.map((video, i) => (
+          <a
+            key={i}
+            href={video.href}
+            target="_blank"
+            rel="noreferrer"
+            className="group relative aspect-9/16 overflow-hidden rounded-2xl border border-accent-200/60 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-400"
+          >
+            <ImageWithFallback
+              src={video.image}
+              alt={video.caption}
+              className="size-full object-cover transition-transform duration-300 group-hover:scale-105"
+              fallback={
+                <span className="flex size-full flex-col items-center justify-center gap-2 bg-linear-to-br from-accent-100 to-accent-200 text-accent-500">
+                  <Music2 className="size-7" />
+                  <span className="px-3 text-center text-xs font-medium">{video.caption}</span>
+                </span>
+              }
+            />
+            <span className="pointer-events-none absolute inset-0 flex items-center justify-center">
+              <span className="flex size-11 items-center justify-center rounded-full bg-white/80 text-accent-600 opacity-0 shadow-sm backdrop-blur transition-opacity duration-200 group-hover:opacity-100">
+                <Play className="size-5 translate-x-0.5 fill-current" />
+              </span>
+            </span>
+            <span className="pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t from-accent-900/60 to-transparent p-3 text-xs font-medium text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+              {video.caption}
+            </span>
+          </a>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+function Bloom() {
+  return (
+    <section className="reveal-3d relative mx-auto max-w-5xl overflow-hidden px-4 py-24 sm:px-6 md:py-32 lg:px-8">
+      <div className="bloom-stage flex flex-col items-center text-center">
+        <div className="bloom mb-10 size-56 md:size-72">
+          <span className="bloom-petal" />
+          <span className="bloom-petal" />
+          <span className="bloom-petal" />
+          <span className="bloom-petal" />
+          <span className="bloom-petal" />
+          <span className="bloom-petal" />
+          <span className="bloom-petal" />
+          <span className="bloom-petal" />
+          <span className="bloom-petal inner" />
+          <span className="bloom-petal inner" />
+          <span className="bloom-petal inner" />
+          <span className="bloom-petal inner" />
+          <span className="bloom-core" />
+        </div>
+        <p className="font-display text-2xl font-600 tracking-tight text-neutral-800 md:text-3xl">
+          Grown with passion, one petal at a time.
+        </p>
+        <p className="mt-3 max-w-prose text-neutral-500">
+          Cảm ơn bạn đã ghé thăm — hãy kết nối với mình nhé.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function Skills() {
   return (
     <Section id="skills" eyebrow="Skills" title="Certifications & strengths">
@@ -586,7 +669,9 @@ export default function App() {
         <Projects />
         <Achievements />
         <Feed />
+        <TikTok />
         <Skills />
+        <Bloom />
         <Contact />
       </main>
       <footer className="border-t border-accent-200/60 py-8">

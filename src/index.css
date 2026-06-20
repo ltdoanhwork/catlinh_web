@@ -68,7 +68,7 @@ html {
   position: absolute;
   border-radius: 50%;
   filter: blur(0.5px);
-  opacity: 0.55;
+  opacity: 0.78;
   transform-style: preserve-3d;
   will-change: transform;
   /* A 5-petal flower built from layered radial gradients */
@@ -86,8 +86,8 @@ html {
     transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
   }
   50% {
-    transform: translate3d(var(--dx, 20px), var(--dy, -28px), 60px)
-      rotateX(18deg) rotateY(22deg) rotateZ(180deg);
+    transform: translate3d(var(--dx, 30px), var(--dy, -40px), 140px)
+      rotateX(35deg) rotateY(45deg) rotateZ(180deg);
   }
   100% {
     transform: translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(360deg);
@@ -101,11 +101,11 @@ html {
 /* ---- 3D scroll reveal ---- */
 .reveal-3d {
   opacity: 0;
-  transform: perspective(1000px) rotateX(12deg) translateY(40px) translateZ(-60px);
+  transform: perspective(900px) rotateX(22deg) translateY(56px) translateZ(-120px);
   transform-origin: center top;
   transition:
     opacity 0.7s ease,
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-3d.is-visible {
@@ -120,5 +120,90 @@ html {
   .reveal-3d {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* ---- Hero bloom: a real 3D flower made of layered petals ---- */
+.bloom-stage {
+  perspective: 800px;
+  perspective-origin: 50% 45%;
+}
+
+.bloom {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: bloom-spin 18s linear infinite;
+  will-change: transform;
+}
+
+@keyframes bloom-spin {
+  from {
+    transform: rotateX(58deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(58deg) rotateZ(360deg);
+  }
+}
+
+.bloom-petal {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 46%;
+  height: 86%;
+  border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  background: linear-gradient(
+    180deg,
+    var(--color-accent-200),
+    var(--color-accent-400) 70%,
+    var(--color-accent-500)
+  );
+  box-shadow: inset 0 -10px 24px rgba(126, 47, 73, 0.18);
+  transform-origin: 50% 100%;
+  opacity: 0.92;
+}
+
+/* 8 petals fanned around the center, each lifted into 3D */
+.bloom-petal:nth-child(1) { transform: rotateZ(0deg) translateY(-30%) rotateX(48deg); }
+.bloom-petal:nth-child(2) { transform: rotateZ(45deg) translateY(-30%) rotateX(48deg); }
+.bloom-petal:nth-child(3) { transform: rotateZ(90deg) translateY(-30%) rotateX(48deg); }
+.bloom-petal:nth-child(4) { transform: rotateZ(135deg) translateY(-30%) rotateX(48deg); }
+.bloom-petal:nth-child(5) { transform: rotateZ(180deg) translateY(-30%) rotateX(48deg); }
+.bloom-petal:nth-child(6) { transform: rotateZ(225deg) translateY(-30%) rotateX(48deg); }
+.bloom-petal:nth-child(7) { transform: rotateZ(270deg) translateY(-30%) rotateX(48deg); }
+.bloom-petal:nth-child(8) { transform: rotateZ(315deg) translateY(-30%) rotateX(48deg); }
+
+/* inner ring of smaller petals for depth */
+.bloom-petal.inner {
+  width: 30%;
+  height: 58%;
+  background: linear-gradient(
+    180deg,
+    var(--color-accent-100),
+    var(--color-accent-300) 75%
+  );
+  opacity: 0.96;
+}
+.bloom-petal.inner:nth-child(9) { transform: rotateZ(22deg) translateY(-22%) rotateX(64deg) translateZ(14px); }
+.bloom-petal.inner:nth-child(10) { transform: rotateZ(112deg) translateY(-22%) rotateX(64deg) translateZ(14px); }
+.bloom-petal.inner:nth-child(11) { transform: rotateZ(202deg) translateY(-22%) rotateX(64deg) translateZ(14px); }
+.bloom-petal.inner:nth-child(12) { transform: rotateZ(292deg) translateY(-22%) rotateX(64deg) translateZ(14px); }
+
+.bloom-core {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 22%;
+  height: 22%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #ffe9a8, var(--color-accent-400));
+  box-shadow: 0 8px 20px rgba(214, 81, 124, 0.35);
+  transform: translateZ(26px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bloom {
+    animation: none;
+    transform: rotateX(58deg);
   }
 }

@@ -4,7 +4,7 @@ export const profile = {
   location: "Hanoi, Vietnam",
   phone: "+84 916 123 933",
   email: "nglecatlinh@gmail.com",
-  photo: "/images/profile.jpg",
+  photo: "/images/profile.png",
   summary:
     "Third-year International Economics student at National Economics University, blending academic foundations with hands-on experience across business consulting, marketing, and communications. I bridge business operations and technology — from first touchpoint to successful adoption — and love sharing knowledge through my personal blog @noidaycocat. Eager to keep practicing what I learn and to take on new opportunities in business and economics.",
   socials: [
@@ -209,6 +209,19 @@ export const instagram = {
     { image: "/images/instagram/post-4.jpg", caption: "Personal growth stories", href: "https://www.instagram.com/noidaycocat" },
     { image: "/images/instagram/post-5.jpg", caption: "Mental health awareness", href: "https://www.instagram.com/noidaycocat" },
     { image: "/images/instagram/post-6.jpg", caption: "Effective learning", href: "https://www.instagram.com/noidaycocat" },
+  ],
+};
+
+export const tiktok = {
+  handle: "@noidaycocat",
+  name: "nơi đây có Cát",
+  href: "https://www.tiktok.com/@noidaycocat",
+  bio: "Educational & lifestyle videos on studying, balance, and growth.",
+  videos: [
+    { image: "/images/tiktok/video-1.jpg", caption: "Study with me", href: "https://www.tiktok.com/@noidaycocat" },
+    { image: "/images/tiktok/video-2.jpg", caption: "Productivity hacks", href: "https://www.tiktok.com/@noidaycocat" },
+    { image: "/images/tiktok/video-3.jpg", caption: "Day in my life", href: "https://www.tiktok.com/@noidaycocat" },
+    { image: "/images/tiktok/video-4.jpg", caption: "Mindset & growth", href: "https://www.tiktok.com/@noidaycocat" },
   ],
 };
 

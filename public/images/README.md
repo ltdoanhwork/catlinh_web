@@ -11,6 +11,7 @@ placeholder gradient hồng nhẹ nhàng — nên trang luôn đẹp dù thiếu
 | `images/projects/jeify.jpg`           | Thumbnail project JEIFY            | 16:9, ~1200×675  |
 | `images/projects/mindly.jpg`          | Thumbnail project Mindly          | 16:9, ~1200×675  |
 | `images/instagram/post-1.jpg` … `post-6.jpg` | Lưới bài đăng Instagram     | vuông, ~800×800  |
+| `images/tiktok/video-1.jpg` … `video-4.jpg` | Thumbnail video TikTok      | dọc 9:16, ~720×1280 |
 
 ## Cách lấy ảnh
 
