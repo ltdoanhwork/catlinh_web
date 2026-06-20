@@ -129,54 +129,59 @@ html {
   perspective-origin: 50% 45%;
 }
 
+.bloom-stage {
+  perspective: 900px;
+  perspective-origin: 50% 50%;
+}
+
 .bloom {
   position: relative;
   transform-style: preserve-3d;
-  animation: bloom-spin 18s linear infinite;
+  animation: bloom-spin 24s linear infinite;
   will-change: transform;
 }
 
 @keyframes bloom-spin {
   from {
-    transform: rotateX(58deg) rotateZ(0deg);
+    transform: rotateX(52deg) rotateZ(0deg);
   }
   to {
-    transform: rotateX(58deg) rotateZ(360deg);
+    transform: rotateX(52deg) rotateZ(360deg);
   }
 }
 
 .bloom-petal {
   position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 46%;
-  height: 86%;
-  border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  left: 50%;
+  top: 50%;
+  width: 34%;
+  height: 50%;
+  border-radius: 50% 50% 42% 42% / 60% 60% 40% 40%;
   background: linear-gradient(
     180deg,
     var(--color-accent-200),
     var(--color-accent-400) 70%,
     var(--color-accent-500)
   );
-  box-shadow: inset 0 -10px 24px rgba(126, 47, 73, 0.18);
-  transform-origin: 50% 100%;
-  opacity: 0.92;
+  box-shadow: inset 0 -8px 18px rgba(126, 47, 73, 0.16);
+  transform-origin: 50% 0%;
+  opacity: 0.9;
 }
 
-/* 8 petals fanned around the center, each lifted into 3D */
-.bloom-petal:nth-child(1) { transform: rotateZ(0deg) translateY(-30%) rotateX(48deg); }
-.bloom-petal:nth-child(2) { transform: rotateZ(45deg) translateY(-30%) rotateX(48deg); }
-.bloom-petal:nth-child(3) { transform: rotateZ(90deg) translateY(-30%) rotateX(48deg); }
-.bloom-petal:nth-child(4) { transform: rotateZ(135deg) translateY(-30%) rotateX(48deg); }
-.bloom-petal:nth-child(5) { transform: rotateZ(180deg) translateY(-30%) rotateX(48deg); }
-.bloom-petal:nth-child(6) { transform: rotateZ(225deg) translateY(-30%) rotateX(48deg); }
-.bloom-petal:nth-child(7) { transform: rotateZ(270deg) translateY(-30%) rotateX(48deg); }
-.bloom-petal:nth-child(8) { transform: rotateZ(315deg) translateY(-30%) rotateX(48deg); }
+/* 8 outer petals radiating from the center, tilted up for 3D depth */
+.bloom-petal:nth-child(1) { transform: translate(-50%, 0) rotateZ(0deg) rotateX(38deg); }
+.bloom-petal:nth-child(2) { transform: translate(-50%, 0) rotateZ(45deg) rotateX(38deg); }
+.bloom-petal:nth-child(3) { transform: translate(-50%, 0) rotateZ(90deg) rotateX(38deg); }
+.bloom-petal:nth-child(4) { transform: translate(-50%, 0) rotateZ(135deg) rotateX(38deg); }
+.bloom-petal:nth-child(5) { transform: translate(-50%, 0) rotateZ(180deg) rotateX(38deg); }
+.bloom-petal:nth-child(6) { transform: translate(-50%, 0) rotateZ(225deg) rotateX(38deg); }
+.bloom-petal:nth-child(7) { transform: translate(-50%, 0) rotateZ(270deg) rotateX(38deg); }
+.bloom-petal:nth-child(8) { transform: translate(-50%, 0) rotateZ(315deg) rotateX(38deg); }
 
-/* inner ring of smaller petals for depth */
+/* inner ring of smaller petals, raised for depth */
 .bloom-petal.inner {
-  width: 30%;
-  height: 58%;
+  width: 22%;
+  height: 33%;
   background: linear-gradient(
     180deg,
     var(--color-accent-100),
@@ -184,26 +189,26 @@ html {
   );
   opacity: 0.96;
 }
-.bloom-petal.inner:nth-child(9) { transform: rotateZ(22deg) translateY(-22%) rotateX(64deg) translateZ(14px); }
-.bloom-petal.inner:nth-child(10) { transform: rotateZ(112deg) translateY(-22%) rotateX(64deg) translateZ(14px); }
-.bloom-petal.inner:nth-child(11) { transform: rotateZ(202deg) translateY(-22%) rotateX(64deg) translateZ(14px); }
-.bloom-petal.inner:nth-child(12) { transform: rotateZ(292deg) translateY(-22%) rotateX(64deg) translateZ(14px); }
+.bloom-petal.inner:nth-child(9) { transform: translate(-50%, 0) rotateZ(22deg) rotateX(58deg) translateZ(12px); }
+.bloom-petal.inner:nth-child(10) { transform: translate(-50%, 0) rotateZ(112deg) rotateX(58deg) translateZ(12px); }
+.bloom-petal.inner:nth-child(11) { transform: translate(-50%, 0) rotateZ(202deg) rotateX(58deg) translateZ(12px); }
+.bloom-petal.inner:nth-child(12) { transform: translate(-50%, 0) rotateZ(292deg) rotateX(58deg) translateZ(12px); }
 
 .bloom-core {
   position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 22%;
-  height: 22%;
+  left: 50%;
+  top: 50%;
+  width: 18%;
+  height: 18%;
   border-radius: 50%;
   background: radial-gradient(circle at 40% 35%, #ffe9a8, var(--color-accent-400));
-  box-shadow: 0 8px 20px rgba(214, 81, 124, 0.35);
-  transform: translateZ(26px);
+  box-shadow: 0 6px 16px rgba(214, 81, 124, 0.3);
+  transform: translate(-50%, -50%) translateZ(20px);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .bloom {
     animation: none;
-    transform: rotateX(58deg);
+    transform: rotateX(52deg);
   }
 }

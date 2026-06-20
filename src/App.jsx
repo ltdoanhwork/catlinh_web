@@ -561,24 +561,26 @@ function TikTok() {
 
 function Bloom() {
   return (
-    <section className="reveal-3d relative mx-auto max-w-5xl overflow-hidden px-4 py-24 sm:px-6 md:py-32 lg:px-8">
+    <section className="reveal-3d relative mx-auto max-w-5xl px-4 py-20 sm:px-6 md:py-28 lg:px-8">
       <div className="bloom-stage flex flex-col items-center text-center">
-        <div className="bloom mb-10 size-56 md:size-72">
-          <span className="bloom-petal" />
-          <span className="bloom-petal" />
-          <span className="bloom-petal" />
-          <span className="bloom-petal" />
-          <span className="bloom-petal" />
-          <span className="bloom-petal" />
-          <span className="bloom-petal" />
-          <span className="bloom-petal" />
-          <span className="bloom-petal inner" />
-          <span className="bloom-petal inner" />
-          <span className="bloom-petal inner" />
-          <span className="bloom-petal inner" />
-          <span className="bloom-core" />
+        <div className="flex h-56 items-center justify-center md:h-64">
+          <div className="bloom size-48 md:size-56">
+            <span className="bloom-petal" />
+            <span className="bloom-petal" />
+            <span className="bloom-petal" />
+            <span className="bloom-petal" />
+            <span className="bloom-petal" />
+            <span className="bloom-petal" />
+            <span className="bloom-petal" />
+            <span className="bloom-petal" />
+            <span className="bloom-petal inner" />
+            <span className="bloom-petal inner" />
+            <span className="bloom-petal inner" />
+            <span className="bloom-petal inner" />
+            <span className="bloom-core" />
+          </div>
         </div>
-        <p className="font-display text-2xl font-600 tracking-tight text-neutral-800 md:text-3xl">
+        <p className="mt-10 font-display text-2xl font-600 tracking-tight text-neutral-800 md:text-3xl">
           Grown with passion, one petal at a time.
         </p>
         <p className="mt-3 max-w-prose text-neutral-500">
