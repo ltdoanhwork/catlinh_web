@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Mail,
   Phone,
@@ -62,6 +62,90 @@ function initials(name) {
     .map((w) => w[0])
     .slice(-2)
     .join("");
+}
+
+const FLOWERS = [
+  { top: "6%", left: "8%", size: 160, petal: "var(--color-accent-200)", core: "var(--color-accent-300)", dur: 28, dx: "26px", dy: "-34px", depth: 0.05 },
+  { top: "18%", left: "82%", size: 110, petal: "var(--color-accent-100)", core: "var(--color-accent-300)", dur: 32, dx: "-30px", dy: "24px", depth: 0.09 },
+  { top: "44%", left: "70%", size: 200, petal: "var(--color-accent-100)", core: "var(--color-accent-200)", dur: 38, dx: "20px", dy: "30px", depth: 0.04 },
+  { top: "62%", left: "12%", size: 140, petal: "var(--color-accent-200)", core: "var(--color-accent-300)", dur: 30, dx: "32px", dy: "-22px", depth: 0.07 },
+  { top: "80%", left: "60%", size: 120, petal: "var(--color-accent-100)", core: "var(--color-accent-300)", dur: 34, dx: "-24px", dy: "-30px", depth: 0.06 },
+  { top: "88%", left: "30%", size: 90, petal: "var(--color-accent-200)", core: "var(--color-accent-400)", dur: 26, dx: "18px", dy: "26px", depth: 0.1 },
+];
+
+function Flora() {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        const el = ref.current;
+        if (!el) return;
+        for (const node of el.children) {
+          const depth = Number(node.dataset.depth || 0);
+          node.style.translate = `0 ${(-y * depth).toFixed(1)}px`;
+        }
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
+  return (
+    <div className="flora" aria-hidden ref={ref}>
+      {FLOWERS.map((f, i) => (
+        <div
+          key={i}
+          data-depth={f.depth}
+          style={{ top: f.top, left: f.left, translate: "0 0" }}
+          className="absolute"
+        >
+          <div
+            className="flower flower-anim"
+            style={{
+              width: f.size,
+              height: f.size,
+              "--petal": f.petal,
+              "--core": f.core,
+              "--dur": `${f.dur}s`,
+              "--dx": f.dx,
+              "--dy": f.dy,
+              animationDelay: `${-i * 3}s`,
+            }}
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function useReveal() {
+  useEffect(() => {
+    const els = document.querySelectorAll(".reveal-3d");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      els.forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
 }
 
 function Header() {
@@ -176,7 +260,10 @@ function Hero() {
 
 function Section({ id, eyebrow, title, children }) {
   return (
-    <section id={id} className="mx-auto max-w-5xl px-4 py-16 sm:px-6 md:py-24 lg:px-8">
+    <section
+      id={id}
+      className="reveal-3d mx-auto max-w-5xl px-4 py-16 sm:px-6 md:py-24 lg:px-8"
+    >
       <div className="mb-10 max-w-prose">
         <p className="text-sm font-medium uppercase tracking-wider text-accent-600">
           {eyebrow}
@@ -269,7 +356,7 @@ function Projects() {
             <ImageWithFallback
               src={p.image}
               alt={p.name}
-              className="aspect-[16/9] w-full object-cover"
+              className="aspect-video w-full object-cover"
             />
             <div className="flex flex-1 flex-col p-6 md:p-8">
               <div className="flex items-start gap-4">
@@ -487,8 +574,10 @@ function Contact() {
 }
 
 export default function App() {
+  useReveal();
   return (
-    <div className="min-h-screen bg-cream font-sans text-neutral-800 antialiased">
+    <div className="min-h-screen bg-cream/70 font-sans text-neutral-800 antialiased">
+      <Flora />
       <Header />
       <main>
         <Hero />
