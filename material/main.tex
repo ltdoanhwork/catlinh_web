@@ -1,0 +1,337 @@
+%---- Required Packages and Functions ----
+
+\documentclass[a4paper,11pt]{article}
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{cfr-lm}
+\usepackage[T1]{fontenc}
+\setlength{\footskip}{4.08003pt} 
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.4cm, top=1cm, right=1.4cm, bottom=1cm}
+% Adjust margins
+%\addtolength{\oddsidemargin}{-0.5in}
+%\addtolength{\evensidemargin}{-0.5in}
+%\addtolength{\textwidth}{1in}
+\usepackage[most]{tcolorbox}
+\tcbset{
+	frame code={}
+	center title,
+	left=0pt,
+	right=0pt,
+	top=0pt,
+	bottom=0pt,
+	colback=gray!20,
+	colframe=white,
+	width=\dimexpr\textwidth\relax,
+	enlarge left by=-2mm,
+	boxsep=4pt,
+	arc=0pt,outer arc=0pt,
+}
+
+\urlstyle{same}
+
+\raggedright
+\setlength{\footskip}{4.08003pt}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item{
+    \textbf{#1}{\hspace{0.5mm}#2 \vspace{-0.5mm}}
+  }
+}
+
+\newcommand{\resumePOR}[3]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1}\hspace{0.3mm}#2 & \textit{\small{#3}} 
+    \end{tabular*}
+    \vspace{-2mm}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeProject}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#3}} \\
+        \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+% \renewcommand{\labelitemii}{$\circ$}
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=0mm]}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
+\newcommand{\resumeItemListStart}{\begin{justify}\begin{itemize}[leftmargin=3ex, rightmargin=2ex, noitemsep,labelsep=1.2mm,itemsep=0mm]\small}
+
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2mm}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\end{justify}\vspace{-2mm}}
+\newcommand{\cvsection}[1]{%
+\vspace{2mm}
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+    \vspace{-4mm}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+%---- End of Packages and Functions ------
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%
+%%%%%% DEFINE ELEMENTS HERE %%%%%%%
+\newcommand{\name}{Nguyen Le Cat Linh} % Your Name
+% \newcommand{\course}{Your Program} % Your Program
+% \newcommand{\roll}{xxxxxxx} % Your Roll No.
+\newcommand{\phone}{0916123933} % Định nghĩa lệnh \phone để chỉ in ra số điện thoại được cung cấp
+\newcommand{\emaila}{nglecatlinh@gmail.com} %Email 1
+% \newcommand{\emailb}{officialemail@sru.edu.in} %Email 2
+
+
+
+
+\begin{document}
+\fontfamily{cmr}\selectfont
+%----------HEADING-----------------
+
+
+\parbox{2.6cm}{%
+\includegraphics[width=2.35cm,clip]{image.jpeg}
+}
+\parbox{\dimexpr\linewidth-2.9cm\relax}{
+\begin{tabularx}{\linewidth}{L r} \\
+  \textbf{\Large \name} & {\raisebox{0.0\height}{\footnotesize \faPhone}\ +84-\phone}\\
+   & \href{mailto:\emaila}{\raisebox{0.0\height}{\footnotesize \faEnvelope}\ {\emaila}} \\
+  \course &  \href{mailto:\emailb}{\raisebox{0.0\height}{\footnotesize \faEnvelope}\ {\emailb}}\\
+  % {Your Course} &  \href{https://yourGithubProfile.com/}{\raisebox{0.0\height}{\footnotesize \faGithub}\ {GitHub Profile}} \\
+  % {SR University, Warangal} & \href{https://www.yourLinkedinProfile.com/in/}{\raisebox{0.0\height}{\footnotesize \faLinkedin}\ {LinkedIn Profile}}
+\end{tabularx}
+}
+
+\section{\textbf{Career Overview}}
+Dynamic and goal-oriented professional with proven experience in brand ambassadorship, content creation, startup development, event organization, and educational support. Adept at building strong communities, driving social media engagement, and managing cross-functional projects. Recognized for leadership in business competitions and successful execution of strategic initiatives in both academic and entrepreneurial environments.
+
+  % \resumeSubHeadingListStart
+  %   \resumeSubheading
+  %     {National Economics University}{CGPA/Percentage: 3.96}
+  %     {Internatinal economics}{2022-2026}
+  %   \resumeSubheading
+  %     {Le Quy Don High School for the gifted- Quang Tri province}{CGPA/Percentage: 8.6/10}
+  %     {}{2019-2022}
+  % \resumeSubHeadingListEnd
+% \vspace{-3.5mm}
+%
+
+
+\vspace{-2.5mm}
+%-----------EDUCATION-----------
+\section{\textbf{Education}}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {National Economics University}{GPA/Percentage: 3.94/4.0}
+      {Internatinal Economics}{2022-2026}
+    % \resumeSubheading
+      % {Le Quy Don High School for the gifted - Quang Tri }{GPA/Percentage: 8.7/10}
+      % {Math class}{2019-2022}
+  \resumeSubHeadingListEnd
+\vspace{-2.5mm}
+%
+
+
+
+%-----------EXPERIENCE-----------------
+\section{\textbf{Experience}}
+\resumeSubheading
+  {Base.vn}{}
+  {Junior Business Consultant}{July 2025 -- Present}
+    \resumeItemListStart
+        \item {Managed inbound marketing leads, including hot leads and warm leads, by qualifying customer needs, nurturing relationships, and driving them through the sales pipeline.}
+    
+        \item {Scheduled, prepared for, and handled client meetings and product demos, then followed up effectively to convert opportunities into closed-won deals.}
+    
+        \item {Participated in outbound sales projects and customer development initiatives, with a focus on the logistics vertical, identifying business pain points and proposing suitable solutions.}
+    
+        \item {Consistently achieved monthly and quarterly sales targets, with several months of performance exceeding assigned quotas.}
+    
+        \item {Utilized CRM and customer management tools to track leads, manage pipeline progress, update customer records, and support a structured, data-driven sales process.}
+    
+        \item {Coordinated with internal teams to ensure smooth follow-up, proposal handling, and customer support throughout the sales cycle.}
+    
+        \item {Built and maintained strong relationships with prospects and clients, contributing to revenue growth and improved conversion performance.}
+    \resumeItemListEnd
+
+  \resumeSubheading
+      {Samsung Galaxy Campus Friends – Season 2}{}
+      {Student Ambassador}{March 2025 - Present}
+      % \vspace{-2.0mm}
+      \resumeItemListStart
+    \item {Represented Samsung brand on campus and promoted Galaxy product ecosystem to student communities.}
+    \item {Created social media content and engaged with student networks to increase brand visibility.}
+    \item {Built strong connections between students and the brand, contributing to brand awareness and customer feedback collection.}
+    \item {Presented strategic roadmap to judges and secured first place among competing university teams.}
+    \resumeItemListEnd
+  \resumeSubheading
+      {Personal Branding \& Content Creator}{}
+      {TikTok \& Instagram}{September 2023 - Present}
+      % \vspace{-2.0mm}
+      \resumeItemListStart
+    \item {\href{https://www.instagram.com/noidaycocat/?fbclid=IwZXh0bgNhZW0CMTAAAR09V_7vBPw93t3OyyV4qqC_rN4ueNG9ZxrA3XU8ZTLBgWWKfNnydI5sRX0_aem_AYYAk81qPFjmXWMCWsQBIjkfzxvt3HQsTyTQOEjNpGHVMBALoTm2otWF7k5kuxMo-B8uTfCgZhBO3cCj6K8gelBu}{Instagram account "https://www.instagram.com/noidaycocat" with over 2,500 followers.}}
+    \item {\href{https://www.tiktok.com/@noidaycocat}{Tiktok account: https://www.tiktok.com/@noidaycocat }}
+    \item {Focused on offering self-help tips, study strategies, and guidance for balancing academic, social, and personal challenges, featuring content on effective study techniques, mental health awareness, university resources, and personal growth stories.}
+    % \item {The blog could feature posts on effective studying techniques, mental health awareness, making the most of university resources, and personal growth stories.}
+    
+    \item {\href{https://www.facebook.com/WaveVietnam.project/}{Ambassador in Wave Viet Nam}}
+    \item {Ambassador for the 5th RMIT Business Analytics Competition.}
+    
+    \resumeItemListEnd
+
+    
+
+
+
+    % \vspace{-3.0mm}
+    % \resumeSubheading
+    %   {JEIFY - Jewelry Company Startup}{}
+    %   {Leader}{February 2024 — Present}
+    %   % \vspace{-2.0mm}
+    %   \resumeItemListStart
+    % \item {\href{https://jewelry-istartup.vercel.app/}{https://jewelry-istartup.vercel.app/}}
+    % \item {Research market and analyze data .}
+    % \item {Suggest budget, initial capital and operation cost.}
+    % \item {Develop short-term and long-term plans for the B2B and B2C business.}
+    % \item{Top 8 Young Innovator with Jewelry web: .} 
+    % \item {Top 11 FLAGUP 2024 - startup company from IU - VNUHCM.}
+    % \resumeItemListEnd
+
+    
+    \resumeSubheading
+  {Mindly – AI-powered Mental Health \& JEIFY – AR/AI Jewelry Platform}{}
+  {Founder \& Business Strategy Lead}{February 2024 -- Present}
+  \resumeItemListStart
+
+    \item {Founded and led two AI-driven startup projects, focusing on product strategy, go-to-market execution, and business development.}
+
+    \item {Designed and executed go-to-market strategies, including early user acquisition, partnership development, and community building.}
+
+    \item {Conducted market research, competitor analysis, and business modeling to identify market opportunities and define product positioning.}
+
+    \item {Collaborated with product and engineering teams to translate business requirements into scalable product features for both B2C and B2B use cases.}
+
+    \item {Established and negotiated partnerships with local businesses and stakeholders to support platform growth.}
+
+    \item {\textbf{Achievements}: Third Prize – Health Systems Innovation Hackathon 2025; Top 8 – Young Innovator 2024; Top 10 – FLAGUP Startup Competition 2024.}
+
+  \resumeItemListEnd
+    \resumeSubheading
+  {Uni English Center \& IELTS Teaching Assistant}{}
+  {Sales Associate \& IELTS Teaching Assistant}{September 2022 -- October 2023}
+  \resumeItemListStart
+
+    \item {Drove sales of English courses by consulting and communicating with prospective students, generating \textbf{129,000,000 VND} in revenue.}
+
+    \item {Promoted to \textbf{Management Trainee} within three months in recognition of strong performance and leadership potential.}
+
+    \item {Transitioned into an IELTS Teaching Assistant role, supporting instruction in grammar, vocabulary, speaking, and writing modules.}
+
+    \item {Conducted pronunciation training sessions and assisted students in improving speaking performance through structured practice.}
+
+    \item {Reviewed and provided feedback on IELTS writing tasks, helping students enhance coherence, grammar accuracy, and overall band scores.}
+
+  \resumeItemListEnd
+          
+    
+
+      \resumeSubHeadingListEnd
+
+\section{\textbf{Achivements}}
+\resumeSubHeadingListStart
+    
+    \resumeSubheading
+      {Winner – Rocket to Business Development Competition 2025}{}
+      {Case: Growth Strategy for Base CRM}{May 2025 — Present}
+      % \vspace{-2.0mm}
+      \resumeItemListStart
+    \item {Led team to develop a comprehensive go-to-market and business growth strategy for Base CRM in the B2B SaaS market.}
+    \item {Analyzed competitive landscape and market opportunities to propose actionable business recommendations.}
+    \item {Presented strategic roadmap to judges and secured first place among competing university teams.}
+    \item {\href{https://drive.google.com/file/d/11auyr5kBRYqeZaCoA9FJVJZ_7lae41FU/view?usp=sharing}{Pitchdeck: https://drive.google.com/file/d/11auyr5kBRYqeZaCoA9FJVJZ7lae41FU/view?usp=sharing}}
+    \resumeItemListEnd
+      \resumeSubHeadingListEnd
+    
+    
+
+
+
+%-----------Technical skills-----------------
+\section{\textbf{CERTIFICATIONS AND TECHNICAL SKILLS}}
+ \begin{itemize}[leftmargin=0.1in, label={}]
+    \small{\item{
+     \textbf{Languages}{: IELTS: Overall 7.5 (Listening: 8.0, Reading: 8.5, Writing: 6.5, Speaking: 6.5) } \\
+     \textbf{Digital tools}{: Proficient in digital tools and platforms relevant to content creation and event management.} \\
+     \textbf{Digital Marketing}{: Certified in Digital Marketing Fundamentals by Job Coach Vietnam, Class of 2023.}
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+
+
+
+
+
+%-----------Achievements-----------------
+% \section{\textbf{Achievements}}
+% \vspace{-0.4mm}
+% \resumeSubHeadingListStart
+% \resumePOR{Achievement } % Award
+%     {description} % Event
+%     {Event dates} %Event Year
+    
+% \resumePOR{Achievement } % Award
+%     {description} % Event
+%     {Event dates} %Event Year
+% \resumeSubHeadingListEnd
+% \vspace{-5mm}
+
+
+
+%-------------------------------------------
+\end{document}
